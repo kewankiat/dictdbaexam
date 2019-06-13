@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title> Database Administrator Exam </title>
+        
+        <link   rel="stylesheet" href="bootstrap.min.css" />
+        <script src="bootstrap.min.js"> </script>
+        <link   rel="stylesheet" href="style.css" />
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div >
+                <h1> List of sample Unified Accounts Code Structure (UACS) for the government offices in the Philippines. </h1>
+            </div>
+
+                
+                <!-- <div class="shadowz" align="center">
+                    <input type="text" name="search" id="search" class="form-control" placeholder="Search anything here you think about DICT UACS Records" />
+  
+                  </div> -->
+                <br/>
+                <div class="divs shadowz table-responsive">
+                  
+                  <table class="table table-bordered table-stripped" id="uacs_table">
+                    <tr>
+                        <th> UACS </th>
+                        <th> Agency </th>
+                        <th> Department </th>
+                    </tr>
+                  </table>
+                </div>
+              
+                <div class="spann"> Please use scroll bar to see more records further. </span>
+
+
+            </div>
+        </div>
+        <script src="jquery.min.js"> </script>
+        <script >
+          $(document).ready(function() {
+                  $.ajax({
+                    url: "http://igovphil.github.io/java-exam-01/uacs-agency.json",
+                    dataType: "json",
+                    success: function(data){
+                      $(data).each(function(index,value) {
+
+                        var record="<tr><td>" + value.uacs + "</td> <td>" + value.agency + "</td> <td>" + value.department + "</td> </tr>";
+                  
+                        $("table").append(record);
+                      });
+                    }
+                  });
+
+                
+          });
+        
+        </script>
+
+
+
+
+
+    </body>
+  </html>
+
+
+
+  
+
+
+
+
+
